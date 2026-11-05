@@ -3,63 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELITE ATELIER | Multi-Page Boutique</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+    <title>VERONA ATELIER | Luxury Couture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        :root { --bg: #0b0c10; --card-bg: #12141c; --gold: #d4af37; --gold-light: #f3e5ab; --text: #e5e5e5; --muted: #999; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background: #fafafa; color: #222; }
-        h1, h2, h3, nav a { font-family: 'Playfair Display', serif; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+        h1, h2, h3, .brand-logo, nav a { font-family: 'Cinzel', serif; letter-spacing: 2px; }
 
-        /* Navigation Bar */
-        header { background: #fff; border-bottom: 1px solid #eaeaea; position: sticky; top: 0; z-index: 100; }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 18px 8%; max-width: 1400px; margin: auto; }
-        .brand-logo { font-size: 26px; font-weight: 700; color: #111; text-decoration: none; letter-spacing: 2px; }
-        nav ul { display: flex; gap: 30px; list-style: none; }
-        nav ul li a { text-decoration: none; color: #444; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: 0.3s; }
-        nav ul li a:hover, nav ul li a.active { color: #c5a059; font-weight: 600; }
+        /* Top Announcement Ticker */
+        .ticker { background: linear-gradient(90deg, #111, var(--gold), #111); color: #000; font-size: 11px; font-weight: 700; text-align: center; padding: 8px; text-transform: uppercase; letter-spacing: 1.5px; }
 
-        /* Multi-Page Views Control */
-        .page-view { display: none; padding: 60px 8%; max-width: 1400px; margin: auto; min-height: 70vh; }
-        .page-view.active-page { display: block; animation: fadeIn 0.4s ease-in-out; }
+        /* Luxury Header */
+        header { background: rgba(11, 12, 16, 0.95); border-bottom: 1px solid rgba(212, 175, 55, 0.2); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 20px 7%; max-width: 1400px; margin: auto; }
+        .brand-logo { font-size: 24px; font-weight: 700; color: var(--gold); text-decoration: none; text-shadow: 0 0 10px rgba(212, 175, 55, 0.2); }
+        nav ul { display: flex; gap: 35px; list-style: none; }
+        nav ul li a { text-decoration: none; color: var(--text); font-size: 13px; text-transform: uppercase; cursor: pointer; transition: 0.3s; padding-bottom: 5px; border-bottom: 2px solid transparent; }
+        nav ul li a:hover, nav ul li a.active { color: var(--gold); border-bottom-color: var(--gold); }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        /* Multi-Page Dynamic Container */
+        .page-view { display: none; padding: 60px 7%; max-width: 1400px; margin: auto; min-height: 75vh; }
+        .page-view.active-page { display: block; animation: slideUp 0.4s ease-out; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Hero Banner (Home View) */
+        .hero { height: 60vh; background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(11,12,16,1) 100%), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=80') center/cover; border-radius: 16px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; border: 1px solid rgba(212, 175, 55, 0.2); }
+        .hero h1 { font-size: 44px; color: #fff; margin-bottom: 15px; }
+        .hero p { color: var(--gold-light); font-size: 15px; max-width: 600px; margin-bottom: 25px; }
 
         /* Product Cards Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; margin-top: 30px; }
-        .product-card { background: #fff; border: 1px solid #eee; text-align: center; padding-bottom: 20px; transition: 0.3s; }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .product-card img { width: 100%; height: 350px; object-fit: cover; }
-        .product-card h3 { font-size: 18px; margin: 15px 0 5px; }
-        .product-card p { color: #c5a059; font-weight: 600; margin-bottom: 12px; }
-        .btn-order { background: #111; color: #fff; padding: 10px 20px; text-decoration: none; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; display: inline-block; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .product-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; transition: 0.4s; position: relative; }
+        .product-card:hover { border-color: var(--gold); transform: translateY(-7px); box-shadow: 0 12px 30px rgba(212,175,55,0.15); }
+        .img-wrap { height: 380px; overflow: hidden; position: relative; }
+        .product-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .product-card:hover img { transform: scale(1.06); }
+        .badge { position: absolute; top: 15px; left: 15px; background: var(--gold); color: #000; font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; }
+        .details { padding: 20px; text-align: center; }
+        .details h3 { font-size: 18px; margin-bottom: 8px; color: #fff; }
+        .details .price { color: var(--gold); font-size: 16px; font-weight: 600; margin-bottom: 15px; }
 
-        /* Floating Widgets */
-        .wa-float { position: fixed; bottom: 30px; left: 30px; background: #25d366; color: #fff; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1000; text-decoration: none; }
-        .ai-float { position: fixed; bottom: 30px; right: 30px; background: #111; color: #c5a059; border: 1px solid #c5a059; padding: 12px 20px; border-radius: 25px; font-weight: 600; cursor: pointer; z-index: 1000; }
+        /* Premium Buttons */
+        .btn-gold { background: linear-gradient(135deg, var(--gold), #b8860b); color: #000; font-weight: 700; padding: 12px 24px; border: none; border-radius: 30px; text-decoration: none; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; display: inline-block; cursor: pointer; transition: 0.3s; }
+        .btn-gold:hover { background: #fff; color: #000; box-shadow: 0 0 15px var(--gold); }
+        .btn-outline { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 10px 20px; border-radius: 30px; text-decoration: none; font-size: 12px; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
+        .btn-outline:hover { background: var(--gold); color: #000; }
 
-        /* AI Chatbox */
-        .chat-box { display: none; position: fixed; bottom: 95px; right: 30px; width: 320px; background: #fff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); z-index: 1000; }
-        .chat-head { background: #111; color: #fff; padding: 12px 15px; font-weight: 600; display: flex; justify-content: space-between; border-radius: 9px 9px 0 0; }
-        .chat-messages { height: 240px; padding: 12px; overflow-y: auto; font-size: 13px; display: flex; flex-direction: column; gap: 8px; }
-        .msg-b { background: #f1f1f1; padding: 8px 12px; border-radius: 8px; align-self: flex-start; }
-        .msg-u { background: #c5a059; color: #fff; padding: 8px 12px; border-radius: 8px; align-self: flex-end; }
-        .chat-input-area { display: flex; border-top: 1px solid #eee; }
-        .chat-input-area input { flex: 1; padding: 10px; border: none; font-size: 12px; outline: none; }
-        .chat-input-area button { padding: 10px 15px; background: #111; color: #fff; border: none; cursor: pointer; }
+        /* Floating Concierge & AI Bot */
+        .wa-float { position: fixed; bottom: 30px; left: 30px; background: #25d366; color: #fff; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; z-index: 1000; text-decoration: none; box-shadow: 0 5px 20px rgba(37,211,102,0.4); }
+        .ai-float { position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, #111, #222); color: var(--gold); border: 1px solid var(--gold); padding: 14px 22px; border-radius: 30px; font-weight: 700; cursor: pointer; z-index: 1000; box-shadow: 0 5px 20px rgba(0,0,0,0.6); display: flex; align-items: center; gap: 10px; font-size: 12px; letter-spacing: 1px; }
+
+        /* AI Interactive Chat Window */
+        .chat-box { display: none; position: fixed; bottom: 95px; right: 30px; width: 340px; background: #12141c; border: 1px solid var(--gold); border-radius: 14px; box-shadow: 0 15px 35px rgba(0,0,0,0.7); z-index: 1000; overflow: hidden; }
+        .chat-head { background: linear-gradient(90deg, #0b0c10, #1b1e2b); color: var(--gold); padding: 15px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(212,175,55,0.3); font-family: 'Cinzel', serif; }
+        .chat-messages { height: 250px; padding: 15px; overflow-y: auto; font-size: 13px; display: flex; flex-direction: column; gap: 10px; }
+        .msg-b { background: #1c202e; color: #ddd; padding: 10px 14px; border-radius: 10px; border-top-left-radius: 2px; align-self: flex-start; max-width: 85%; }
+        .msg-u { background: var(--gold); color: #000; padding: 10px 14px; border-radius: 10px; border-top-right-radius: 2px; align-self: flex-end; max-width: 85%; font-weight: 600; }
+        .chat-input-area { display: flex; border-top: 1px solid rgba(255,255,255,0.08); background: #0b0c10; }
+        .chat-input-area input { flex: 1; padding: 12px 15px; background: transparent; border: none; color: #fff; font-size: 12px; outline: none; }
+        .chat-input-area button { padding: 12px 18px; background: var(--gold); color: #000; border: none; font-weight: 700; cursor: pointer; }
     </style>
 </head>
 <body>
 
-    <!-- Navigation Header -->
+    <div class="ticker">Bespoke Couture • Worldwide Express Delivery • Custom Fitting Included</div>
+
+    <!-- Header Navigation -->
     <header>
         <div class="nav-container">
-            <a class="brand-logo" onclick="showPage('home')">ELITE ATELIER</a>
+            <a class="brand-logo" onclick="showPage('home')">VERONA ATELIER</a>
             <nav>
                 <ul>
                     <li><a id="nav-home" class="active" onclick="showPage('home')">Home</a></li>
                     <li><a id="nav-shop" onclick="showPage('shop')">Collections</a></li>
+                    <li><a id="nav-guide" onclick="showPage('guide')">Size Guide</a></li>
                     <li><a id="nav-about" onclick="showPage('about')">About Us</a></li>
                     <li><a id="nav-contact" onclick="showPage('contact')">Contact</a></li>
                 </ul>
@@ -69,76 +89,116 @@
 
     <!-- Page 1: Home View -->
     <div id="page-home" class="page-view active-page">
-        <div style="text-align: center; padding: 40px 0;">
-            <h1 style="font-size: 42px; margin-bottom: 15px;">AUTUMN STYLE SHOWCASE</h1>
-            <p style="color: #666; letter-spacing: 1px;">Discover custom handcrafted boutique attire.</p>
-            <button onclick="showPage('shop')" class="btn-order" style="margin-top: 20px; padding: 14px 30px;">View Full Collection</button>
+        <div class="hero">
+            <h1>LUXURY HANDMADE ATTIRE</h1>
+            <p>Designed for exclusive events, red carpets, and bespoke evening wear.</p>
+            <div>
+                <button onclick="showPage('shop')" class="btn-gold">Explore Collections</button>
+            </div>
         </div>
     </div>
 
-    <!-- Page 2: Shop/Collections View -->
+    <!-- Page 2: Collections View -->
     <div id="page-shop" class="page-view">
-        <h2 style="text-align: center; margin-bottom: 20px;">OUR CATALOG</h2>
+        <h2 style="text-align: center; color: var(--gold); font-size: 30px;">EXPLICIT LUXURY CATALOG</h2>
+        <p style="text-align: center; color: var(--muted); margin-top: 5px;">Select an item to order directly via WhatsApp Concierge.</p>
+        
         <div class="grid">
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=600&q=80" alt="Dress">
-                <h3>Silk Evening Wear</h3>
-                <p>$190.00</p>
-                <a href="https://wa.me/923716649231?text=Inquiring%20about%20Silk%20Evening%20Wear" class="btn-order">Order via WhatsApp</a>
+                <div class="img-wrap">
+                    <span class="badge">Bestseller</span>
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=700&q=80" alt="Silk Dress">
+                </div>
+                <div class="details">
+                    <h3>Imperial Velvet Gown</h3>
+                    <div class="price">$280.00</div>
+                    <a href="https://wa.me/923716649231?text=Inquiring%20about%20Imperial%20Velvet%20Gown" class="btn-gold" target="_blank">Order via WhatsApp</a>
+                </div>
             </div>
+
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="Blazer">
-                <h3>Designer Ivory Suit</h3>
-                <p>$220.00</p>
-                <a href="https://wa.me/923716649231?text=Inquiring%20about%20Designer%20Ivory%20Suit" class="btn-order">Order via WhatsApp</a>
+                <div class="img-wrap">
+                    <span class="badge">Exclusive</span>
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=80" alt="Blazer">
+                </div>
+                <div class="details">
+                    <h3>Royal Gold Tailored Blazer</h3>
+                    <div class="price">$340.00</div>
+                    <a href="https://wa.me/923716649231?text=Inquiring%20about%20Royal%20Gold%20Tailored%20Blazer" class="btn-gold" target="_blank">Order via WhatsApp</a>
+                </div>
             </div>
+
             <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=600&q=80" alt="Kaftan">
-                <h3>Floral Summer Kaftan</h3>
-                <p>$160.00</p>
-                <a href="https://wa.me/923716649231?text=Inquiring%20about%20Floral%20Summer%20Kaftan" class="btn-order">Order via WhatsApp</a>
+                <div class="img-wrap">
+                    <span class="badge">Limited</span>
+                    <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=80" alt="Silk Dress">
+                </div>
+                <div class="details">
+                    <h3>Emerald Evening Couture</h3>
+                    <div class="price">$310.00</div>
+                    <a href="https://wa.me/923716649231?text=Inquiring%20about%20Emerald%20Evening%20Couture" class="btn-gold" target="_blank">Order via WhatsApp</a>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Page 3: About View -->
+    <!-- Page 3: Size Guide View -->
+    <div id="page-guide" class="page-view">
+        <h2 style="text-align: center; color: var(--gold); margin-bottom: 20px;">BESPOKE FITTING GUIDE</h2>
+        <div style="background: var(--card-bg); border: 1px solid rgba(212,175,55,0.3); border-radius: 12px; padding: 30px; max-width: 800px; margin: auto;">
+            <p style="line-height: 1.8; color: #ccc; margin-bottom: 20px;">We tailor dresses according to exact personal body measurements. Submit your dimensions via WhatsApp or follow our standard international sizing conversion below:</p>
+            <table style="width: 100%; text-align: left; border-collapse: collapse; color: #fff;">
+                <tr style="border-bottom: 1px solid var(--gold); color: var(--gold);">
+                    <th style="padding: 10px;">Size</th>
+                    <th style="padding: 10px;">Bust (in)</th>
+                    <th style="padding: 10px;">Waist (in)</th>
+                    <th style="padding: 10px;">Hips (in)</th>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 10px;">Small (S)</td><td>34"</td><td>26"</td><td>37"</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 10px;">Medium (M)</td><td>36"</td><td>28"</td><td>39"</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 10px;">Large (L)</td><td>39"</td><td>31"</td><td>42"</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Page 4: About View -->
     <div id="page-about" class="page-view">
-        <div style="max-width: 700px; margin: auto; text-align: center;">
-            <h2 style="margin-bottom: 20px;">ABOUT ELITE ATELIER</h2>
-            <p style="line-height: 1.8; color: #555;">We deliver luxury bespoke couture worldwide. Each piece is designed with utmost precision, offering custom fitting and worldwide shipping for exclusive clients.</p>
+        <div style="max-width: 750px; margin: auto; text-align: center; background: var(--card-bg); border: 1px solid rgba(255,255,255,0.08); padding: 40px; border-radius: 16px;">
+            <h2 style="color: var(--gold); margin-bottom: 20px;">OUR BRAND LEGACY</h2>
+            <p style="line-height: 1.9; color: #ccc;">Crafting modern luxury attire with hand-stitched details. Verona Atelier delivers haute-couture collections straight to fashion boutique clients across North America, Europe, and the UK.</p>
         </div>
     </div>
 
-    <!-- Page 4: Contact View -->
+    <!-- Page 5: Contact View -->
     <div id="page-contact" class="page-view">
-        <div style="max-width: 500px; margin: auto; text-align: center;">
-            <h2 style="margin-bottom: 20px;">GET IN TOUCH</h2>
-            <p style="margin-bottom: 15px;">Direct Concierge: +92 371 6649231</p>
-            <a href="https://wa.me/923716649231" class="btn-order">Chat on WhatsApp</a>
+        <div style="max-width: 550px; margin: auto; text-align: center; background: var(--card-bg); border: 1px solid var(--gold); padding: 40px; border-radius: 16px;">
+            <h2 style="color: var(--gold); margin-bottom: 15px;">DIRECT CONCIERGE</h2>
+            <p style="color: #aaa; margin-bottom: 25px;">Connect with our lead stylist for custom orders or bulk inquiries.</p>
+            <p style="font-size: 18px; color: #fff; margin-bottom: 25px; font-weight: 600;">+92 371 6649231</p>
+            <a href="https://wa.me/923716649231" class="btn-gold" target="_blank">Launch WhatsApp Chat</a>
         </div>
     </div>
 
-    <!-- WhatsApp Floating Button -->
+    <!-- Floating Buttons -->
     <a href="https://wa.me/923716649231" class="wa-float" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+    <button class="ai-float" onclick="toggleBot()"><i class="fa-solid fa-sparkles"></i> AI Virtual Stylist</button>
 
-    <!-- AI Bot Button & Window -->
-    <button class="ai-float" onclick="toggleBot()"><i class="fa-solid fa-robot"></i> AI Concierge</button>
-    
+    <!-- AI Chat Modal -->
     <div class="chat-box" id="chatBox">
         <div class="chat-head">
-            <span>Boutique Assistant</span>
-            <span style="cursor:pointer" onclick="toggleBot()">&times;</span>
+            <span>Verona AI Stylist</span>
+            <i class="fa-solid fa-xmark" style="cursor:pointer" onclick="toggleBot()"></i>
         </div>
         <div class="chat-messages" id="chatMsgs">
-            <div class="msg-b">Hello! How can I assist with your sizes, shipping, or multi-page navigation?</div>
+            <div class="msg-b">Greetings! I am your AI Stylist. Ask me about custom fittings, size charts, or direct WhatsApp ordering.</div>
         </div>
         <div class="chat-input-area">
-            <input type="text" id="chatInp" placeholder="Ask something..." onkeypress="chkEnter(event)">
+            <input type="text" id="chatInp" placeholder="Type size or order query..." onkeypress="chkEnter(event)">
             <button onclick="sendMsg()">Send</button>
         </div>
     </div>
 
-    <!-- Navigation & Chat Script -->
+    <!-- Scripts -->
     <script>
         function showPage(pageId) {
             document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active-page'));
@@ -146,7 +206,7 @@
             
             document.getElementById('page-' + pageId).classList.add('active-page');
             document.getElementById('nav-' + pageId).classList.add('active');
-            window.scrollTo(0,0);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function toggleBot() {
@@ -171,10 +231,10 @@
             setTimeout(() => {
                 const b = document.createElement('div');
                 b.className = 'msg-b';
-                b.innerText = "Our representative is available live on WhatsApp to confirm your custom measurements!";
+                b.innerText = "Our senior concierge is active on WhatsApp to assist with your custom measurements & priority delivery!";
                 box.appendChild(b);
                 box.scrollTop = box.scrollHeight;
-            }, 700);
+            }, 600);
         }
     </script>
 </body>
