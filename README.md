@@ -1,2 +1,2 @@
-# standard-demo
-Professional multi-page clothing boutique website template featuring custom collections, multi-page navigation, integrated AI assistant, and direct WhatsApp ordering.
+# Standard Boutique Demo
+Multi-page clothing boutique website featuring dynamic collections, multi-page navigation, integrated AI concierge, and direct WhatsApp ordering.
