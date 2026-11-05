@@ -113,3 +113,220 @@
         .chat-input-area button { padding: 10px 15px; background: var(--gold); color: #000; border: none; font-weight: 700; cursor: pointer; }
     </style>
 </head>
+<body>
+
+    <div class="ticker">Bespoke Couture • Worldwide Express Delivery • Custom Fitting Included</div>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <a class="brand-logo" onclick="showPage('home')">VERONA ATELIER</a>
+            <nav>
+                <ul>
+                    <li><a id="nav-home" class="active" onclick="showPage('home')">Home</a></li>
+                    <li><a id="nav-shop" onclick="showPage('shop')">Collections</a></li>
+                    <li><a id="nav-guide" onclick="showPage('guide')">Size Guide</a></li>
+                    <li><a id="nav-about" onclick="showPage('about')">About Us</a></li>
+                    <li><a id="nav-contact" onclick="showPage('contact')">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page 1: Home View -->
+    <div id="page-home" class="page-view active-page">
+        <div class="hero">
+            <div class="rating-box">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <span class="rating-text">5.0 Star Rated Boutique</span>
+            </div>
+            
+            <h1>LUXURY HANDMADE ATTIRE</h1>
+            <p>Designed for exclusive events, red carpets, and bespoke evening wear with worldwide express delivery.</p>
+            
+            <div style="width: 100%; max-width: 280px; margin: auto;">
+                <button onclick="showPage('shop')" class="btn-gold">Explore Collections</button>
+            </div>
+        </div>
+
+        <div class="trust-bar">
+            <div class="trust-item">
+                <i class="fa-solid fa-plane"></i>
+                <span><strong>Worldwide Courier</strong><br>3-5 Days Express</span>
+            </div>
+            <div class="trust-item">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span><strong>Verified Quality</strong><br>100% Authentic Handwork</span>
+            </div>
+            <div class="trust-item">
+                <i class="fa-solid fa-scissors"></i>
+                <span><strong>Custom Fitting</strong><br>Tailored To Your Size</span>
+            </div>
+            <div class="trust-item">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span><strong>Instant Concierge</strong><br>24/7 VIP Support</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 2: Collections View -->
+    <div id="page-shop" class="page-view">
+        <h2 style="text-align: center; color: var(--gold); font-size: 26px;">EXPLICIT LUXURY CATALOG</h2>
+        <p style="text-align: center; color: var(--muted); margin-top: 5px; font-size: 13px;">Select an item to order directly via WhatsApp Concierge.</p>
+        
+        <div class="grid">
+            <div class="product-card">
+                <div class="img-wrap">
+                    <span class="badge">Bestseller</span>
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80" alt="Imperial Velvet Gown">
+                </div>
+                <div class="details">
+                    <div class="stars" style="margin-bottom: 5px;">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <span style="color:#aaa; font-size:11px;">(48 Reviews)</span>
+                    </div>
+                    <h3>Imperial Velvet Gown</h3>
+                    <div class="price">$280.00</div>
+                    <a href="https://wa.me/923716649231?text=Inquiring%20about%20Imperial%20Velvet%20Gown" class="btn-gold" target="_blank">Order via WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrap">
+                    <span class="badge">Exclusive</span>
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Royal Tailored Blazer">
+                </div>
+                <div class="details">
+                    <div class="stars" style="margin-bottom: 5px;">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <span style="color:#aaa; font-size:11px;">(35 Reviews)</span>
+                    </div>
+                    <h3>Royal Gold Tailored Blazer</h3>
+                    <div class="price">$340.00</div>
+                    <a href="https://wa.me/923716649231?text=Inquiring%20about%20Royal%20Gold%20Tailored%20Blazer" class="btn-gold" target="_blank">Order via WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-wrap">
+                    <span class="badge">Limited</span>
+                    <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80" alt="Emerald Evening Couture">
+                </div>
+                <div class="details">
+                    <div class="stars" style="margin-bottom: 5px;">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <span style="color:#aaa; font-size:11px;">(52 Reviews)</span>
+                    </div>
+                    <h3>Emerald Evening Couture</h3>
+                    <div class="price">$310.00</div>
+                    <a href="https://wa.me/923716649231?text=Inquiring%20about%20Emerald%20Evening%20Couture" class="btn-gold" target="_blank">Order via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3: Size Guide View -->
+    <div id="page-guide" class="page-view">
+        <h2 style="text-align: center; color: var(--gold); margin-bottom: 15px; font-size: 24px;">BESPOKE FITTING GUIDE</h2>
+        <div style="background: var(--card-bg); border: 1px solid rgba(212,175,55,0.3); border-radius: 12px; padding: 25px; width: 100%; max-width: 800px; margin: auto;">
+            <p style="line-height: 1.6; color: #ccc; margin-bottom: 15px; font-size: 13px; text-align: center;">We tailor dresses according to exact personal body measurements. Submit your dimensions via WhatsApp or follow our standard international sizing conversion below:</p>
+            <div style="overflow-x: auto; width: 100%;">
+                <table style="width: 100%; text-align: center; border-collapse: collapse; color: #fff; font-size: 12px;">
+                    <tr style="border-bottom: 1px solid var(--gold); color: var(--gold);">
+                        <th style="padding: 10px;">Size</th>
+                        <th style="padding: 10px;">Bust (in)</th>
+                        <th style="padding: 10px;">Waist (in)</th>
+                        <th style="padding: 10px;">Hips (in)</th>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 10px;">Small (S)</td><td>34"</td><td>26"</td><td>37"</td></tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 10px;">Medium (M)</td><td>36"</td><td>28"</td><td>39"</td></tr>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 10px;">Large (L)</td><td>39"</td><td>31"</td><td>42"</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 4: About View -->
+    <div id="page-about" class="page-view">
+        <div style="width: 100%; max-width: 750px; margin: auto; text-align: center; background: var(--card-bg); border: 1px solid rgba(255,255,255,0.08); padding: 35px 20px; border-radius: 16px;">
+            <h2 style="color: var(--gold); margin-bottom: 15px; font-size: 24px;">OUR BRAND LEGACY</h2>
+            <p style="line-height: 1.8; color: #ccc; font-size: 13px;">Crafting modern luxury attire with hand-stitched details. Verona Atelier delivers haute-couture collections straight to fashion boutique clients across North America, Europe, and the UK.</p>
+        </div>
+    </div>
+
+    <!-- Page 5: Contact View -->
+    <div id="page-contact" class="page-view">
+        <div style="width: 100%; max-width: 550px; margin: auto; text-align: center; background: var(--card-bg); border: 1px solid var(--gold); padding: 35px 20px; border-radius: 16px;">
+            <h2 style="color: var(--gold); margin-bottom: 12px; font-size: 24px;">DIRECT CONCIERGE</h2>
+            <p style="color: #aaa; margin-bottom: 20px; font-size: 13px;">Connect with our lead stylist for custom orders or bulk inquiries.</p>
+            <p style="font-size: 18px; color: #fff; margin-bottom: 20px; font-weight: 600;">+92 371 6649231</p>
+            <a href="https://wa.me/923716649231" class="btn-gold" target="_blank" style="max-width: 280px; margin: auto;">Launch WhatsApp Chat</a>
+        </div>
+    </div>
+
+    <!-- Floating Action Buttons -->
+    <a href="https://wa.me/923716649231" class="wa-float" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+    <button class="ai-float" onclick="toggleBot()"><i class="fa-solid fa-sparkles"></i> AI Virtual Stylist</button>
+
+    <!-- AI Chat Box Modal -->
+    <div class="chat-box" id="chatBox">
+        <div class="chat-head">
+            <span>Verona AI Stylist</span>
+            <i class="fa-solid fa-xmark" style="cursor:pointer" onclick="toggleBot()"></i>
+        </div>
+        <div class="chat-messages" id="chatMsgs">
+            <div class="msg-b">Greetings! I am your AI Stylist. Ask me about custom fittings, size charts, or direct WhatsApp ordering.</div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInp" placeholder="Type size or order query..." onkeypress="chkEnter(event)">
+            <button onclick="sendMsg()">Send</button>
+        </div>
+    </div>
+
+    <!-- Page Switcher Script -->
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active-page'));
+            document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+            
+            document.getElementById('page-' + pageId).classList.add('active-page');
+            document.getElementById('nav-' + pageId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleBot() {
+            const b = document.getElementById('chatBox');
+            b.style.display = (b.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function chkEnter(e) { if(e.key === 'Enter') sendMsg(); }
+
+        function sendMsg() {
+            const inp = document.getElementById('chatInp');
+            const box = document.getElementById('chatMsgs');
+            const val = inp.value.trim();
+            if(!val) return;
+
+            const u = document.createElement('div');
+            u.className = 'msg-u';
+            u.innerText = val;
+            box.appendChild(u);
+            inp.value = '';
+
+            setTimeout(() => {
+                const b = document.createElement('div');
+                b.className = 'msg-b';
+                b.innerText = "Our senior concierge is active on WhatsApp to assist with your custom measurements & priority delivery!";
+                box.appendChild(b);
+                box.scrollTop = box.scrollHeight;
+            }, 600);
+        }
+    </script>
+</body>
+</html>
